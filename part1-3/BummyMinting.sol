@@ -63,7 +63,4 @@ contract BummyMinting is BummyOwnership,BummyMintingInterface {
         gen0CreatedCount++;
         return newbummyId;
     }
-
-
-
 }

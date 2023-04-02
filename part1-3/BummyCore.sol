@@ -9,6 +9,7 @@ import "./Interface/BummyCoreInterface.sol";
 contract BummyCore is BummyMinting, BummyCoreInterface{
     // Set in case the core contract is broken and an upgrade is required
     BummyCoreInterface public newContractAddress;
+    event ContractUpgrade(address newContract);
 
     /// @notice Creates Bummy Contracts
     constructor() {
@@ -32,7 +33,8 @@ contract BummyCore is BummyMinting, BummyCoreInterface{
     ///  be paused indefinitely if such an upgrade takes place.)
     /// @param _v2Address new address
     function setNewAddress(address _v2Address) external onlyCEO whenPaused {
-
+        newContractAddress = _v2Address;
+        emit ContractUpgrade(_v2Address);
     }
 
     /// @notice Returns all the relevant information about a specific bummy.
