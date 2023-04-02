@@ -37,7 +37,6 @@ contract BummyMinting is BummyOwnership,BummyMintingInterface {
         uint256 randomNum = uint256(
             keccak256(
                 abi.encode(
-                    msg.sender,
                     tx.gasprice,
                     block.number,
                     block.timestamp,
