@@ -56,6 +56,7 @@ contract BummyMinting is BummyOwnership,BummyMintingInterface {
      * @dev user can create gen0bummy, but only one
      */
     function createFirstGen0Bummy() external returns (uint256){
+        require(alreadyMinted[msg.sender] == false, "already minted");
         uint256 genes = getRandomNumber(gen0CreationLimit);
         uint256 newbummyId = _createBummy(0, 0, 0, genes, msg.sender);
         alreadyMinted[msg.sender] = true;
