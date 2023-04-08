@@ -16,7 +16,7 @@ contract NFT is ERC721Enumerable, Ownable {
     uint public specialCost = 2 ether;
     uint public registerFee = 2 ether;
 
-    mapping(address => uint) public mintableOf
+    mapping(address => uint) public mintableOf;
     mapping(address => bool) public isMintedAddress;
     mapping(address => bool) public isGroupAddress;
     mapping(uint => UserData) public userData;
